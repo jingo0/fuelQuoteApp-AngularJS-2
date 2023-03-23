@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
+}
+
+body {
+  background-color: rgb(87, 99, 112);
+  vertical-align: middle;
+}
+
+.hoverwell:hover {
+  background-color: #485563;
+  cursor: pointer;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.pointable {
+  cursor: pointer;
+}
+
+button {
+  color: #555;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.toast-success {
+  background-color: #51a351;
+}
+.toast-error {
+  background-color: #bd362f;
+}
+.toast-info {
+  background-color: #2f96b4;
+}
+.toast-warning {
+  background-color: #f89406;
+}
