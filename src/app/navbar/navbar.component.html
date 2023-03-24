@@ -6,24 +6,27 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a routerLinkActive="active">Home</a>
+          <a [routerLink]="['/']" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a routerLinkActive="active">Quote Generator</a>
         </li>
         <li>
           <a routerLinkActive="active">Quote History</a>
         </li>
-        <li><a routerLinkActive="active">Profile</a></li>
+        <li><a [routerLink]="['user/profile']" routerLinkActive="active">Profile</a></li>
       </ul>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a> Login </a>
+            <a [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
           </li>
         </ul>
       </div>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a> Register </a>
+            <a [routerLink]="['user/register']" routerLinkActive="active"> Register </a>
           </li>
         </ul>
       </div>
