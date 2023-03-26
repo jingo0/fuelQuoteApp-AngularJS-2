@@ -14,5 +14,6 @@ import { Component } from "@angular/core";
 })
 
 export class navbarComponent {
+    userLoggedIn: boolean = true
     constructor(){}
 }

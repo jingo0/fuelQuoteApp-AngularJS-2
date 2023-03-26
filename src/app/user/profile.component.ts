@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit{
 
   cancel()
   {
-    this.router.navigate(['events'])
+    this.router.navigate(['/'])
   }
 
   saveProfile(formValues:any)
@@ -48,12 +48,12 @@ export class ProfileComponent implements OnInit{
     }
   }
 
-  validateFirstName() : boolean
+  validateFullName() : boolean
   {
     return this.firstName?.valid || this.firstName?.untouched
   }
 
-  validateLastName() : boolean
+  validateAddress() : boolean
   {
     return this.lastName?.valid || this.lastName?.untouched
   }

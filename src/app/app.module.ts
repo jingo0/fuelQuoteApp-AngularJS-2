@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { footerComponent } from './footer/footer.component';
 import { navbarComponent } from './navbar/navbar.component';
+import { quoteGeneratorComponent } from './quoteGenerator/quoteGenerator.component';
+import { quoteHistoryComponent } from './quoteHistory/quoteHistory.component';
 import { appRoutes } from './routes';
 import { WelcomeComponent } from './welcome/welcome.component';
 // "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -13,7 +15,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppComponent,
     navbarComponent,
     footerComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    quoteGeneratorComponent,
+    quoteHistoryComponent
   ],
   imports: [
     BrowserModule,

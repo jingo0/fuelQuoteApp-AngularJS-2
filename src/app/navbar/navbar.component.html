@@ -9,10 +9,10 @@
           <a [routerLink]="['/']" routerLinkActive="active">Home</a>
         </li>
         <li>
-          <a routerLinkActive="active">Quote Generator</a>
+          <a [routerLink]="['getQuote']" routerLinkActive="active">Quote Generator</a>
         </li>
         <li>
-          <a routerLinkActive="active">Quote History</a>
+          <a [routerLink]="['quoteHistory']" routerLinkActive="active">Quote History</a>
         </li>
         <li><a [routerLink]="['user/profile']" routerLinkActive="active">Profile</a></li>
       </ul>
@@ -30,6 +30,13 @@
           </li>
         </ul>
       </div>
+      <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav">
+          <li>
+            <button type="button" class="btn btn-warning" style = "float:right" *ngIf="userLoggedIn">Log Out</button>
+          </li>
+        </ul>
+      </div>        
     </div>
   </div>
 </div>
