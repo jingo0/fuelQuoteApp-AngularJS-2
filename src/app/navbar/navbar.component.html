@@ -9,30 +9,30 @@
           <a [routerLink]="['/']" routerLinkActive="active">Home</a>
         </li>
         <li>
-          <a [routerLink]="['getQuote']" routerLinkActive="active">Quote Generator</a>
+          <a *ngIf="this.authServ.isAuthenticated()" [routerLink]="['getQuote']" routerLinkActive="active">Quote Generator</a>
         </li>
         <li>
-          <a [routerLink]="['quoteHistory']" routerLinkActive="active">Quote History</a>
+          <a *ngIf="this.authServ.isAuthenticated()" [routerLink]="['quoteHistory']" routerLinkActive="active">Quote History</a>
         </li>
-        <li><a [routerLink]="['user/profile']" routerLinkActive="active">Profile</a></li>
+        <li><a *ngIf="this.authServ.isAuthenticated()" [routerLink]="['user/profile']" routerLinkActive="active">Profile</a></li>
       </ul>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
+            <a *ngIf="!this.authServ.isAuthenticated()" [routerLink]="['user/login']" routerLinkActive="active"> Login </a>
           </li>
         </ul>
       </div>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a [routerLink]="['user/register']" routerLinkActive="active"> Register </a>
+            <a *ngIf="!this.authServ.isAuthenticated()" [routerLink]="['user/register']" routerLinkActive="active"> Register </a>
           </li>
         </ul>
       </div>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
-          <li>
+          <li *ngIf="authServ.isAuthenticated()">
             <button type="button" class="btn btn-warning" style = "float:right" *ngIf="userLoggedIn">Log Out</button>
           </li>
         </ul>

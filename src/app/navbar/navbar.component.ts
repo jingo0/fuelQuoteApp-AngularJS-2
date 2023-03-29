@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AuthService } from "../user/auth.service";
 
 @Component({
     selector: "nav-bar",
@@ -15,5 +16,5 @@ import { Component } from "@angular/core";
 
 export class navbarComponent {
     userLoggedIn: boolean = true
-    constructor(){}
+    constructor(public authServ: AuthService){}
 }
