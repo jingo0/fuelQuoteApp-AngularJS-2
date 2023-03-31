@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { footerComponent } from './footer/footer.component';
 import { navbarComponent } from './navbar/navbar.component';
 import { quoteGeneratorComponent } from './quoteGenerator/quoteGenerator.component';
+import { HistoryDetailComponent } from './quoteHistory/historyDetail.component';
 import { quoteHistoryComponent } from './quoteHistory/quoteHistory.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
@@ -18,7 +19,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     footerComponent,
     WelcomeComponent,
     quoteGeneratorComponent,
-    quoteHistoryComponent
+    quoteHistoryComponent,
+    HistoryDetailComponent
   ],
   imports: [
     BrowserModule,
