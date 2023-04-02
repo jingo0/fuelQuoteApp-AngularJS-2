@@ -3,84 +3,76 @@
   <hr />
   <div class="col-md-4">
     <form
-      [formGroup]="profileForm"
+      #profileForm="ngForm"
       (ngSubmit)="saveProfile(profileForm.value)"
       autocomplete="off"
       novalidate
     >
-      <div class="form-group" [ngStyle]="{ error: true }">
-        <label for="fullname">Full Name:</label>
-        <em
-          *ngIf="
-            !validateFullName() &&
-            (profileForm.controls['firstName']?.errors)!['required']
-          "
-          >Required</em
-        >
-        <em
-          *ngIf="
-            !validateFullName() &&
-            (profileForm.controls['firstName']?.errors)!['pattern']
-          "
-          >Must Start with a Letter
-        </em>
-        <input
-          formControlName="fullname"
-          id="fullname"
-          type="text"
-          class="form-control"
-          placeholder="fullname..."
-          required
-        />
-      </div>
-      <div class="form-group" [ngClass]="{ error: !validateAddress() }">
-        <label for="address1">Address 1:</label>
-        <input
-          formControlName="address1"
-          id="address1"
-          type="text"
-          class="form-control"
-          placeholder="Address..."
-          required
-        />
-      </div>
-
       <div class="form-group">
-        <label for="address1">Address 2:</label>
+        <label for="fullName">Full Name:</label>
+        <em
+        *ngIf="profileForm.controls['fullName']?.invalid && (profileForm.controls['fullName']?.touched)"
+          >Required</em>
         <input
-          formControlName="address1"
+          (ngModel)="(fullName)"
+          id="fullName"
+          name="fullName"
+          type="text"
+          class="form-control"
+          placeholder="full name..."
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="address1">Address 1:</label>
+        <em
+        *ngIf="profileForm.controls['address1']?.invalid && (profileForm.controls['address1']?.touched)"
+          >Required</em>
+        <input
+          (ngModel)="(address1)"
           id="address1"
+          name="address1"
           type="text"
           class="form-control"
           placeholder="Address..."
+          required
         />
       </div>
 
       <div class="form-group">
         <label for="address2">Address 2:</label>
         <input
-          formControlName="address2"
+          (ngModel)="(address2)"
           id="address2"
+          name="address2"
           type="text"
           class="form-control"
-          placeholder="Address..."
+          placeholder="Address...(optional)"
         />
       </div>
 
       <div class="form-group">
         <label for="city">City</label>
+        <em
+        *ngIf="profileForm.controls['city']?.invalid && (profileForm.controls['city']?.touched)"
+          >Required</em>
         <input
-          formControlName="city"
+        (ngModel)="(city)"
           id="city"
+          name="city"
           type="text"
           class="form-control"
           placeholder="city..."
+          required
         />
       </div>
 
       <div class="form-group">
-        <label for="lstate">State:</label>
-        <select class="form-control" name="states" id="states" required>
+        <label for="state">State:</label>
+        <em
+        *ngIf="profileForm.controls['state']?.invalid && (profileForm.controls['state']?.touched)"
+          >Required</em>
+        <select (ngModel)="(state)" id="state" class="form-control" name="state" required>
           <option value="none">Select</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -137,16 +129,21 @@
 
       <div class="form-group">
         <label for="zip">Zip</label>
+        <em
+        *ngIf="profileForm.controls['zip']?.invalid && (profileForm.controls['zip']?.touched)"
+          >Required</em>
         <input
-          formControlName="zip"
+        (ngModel)="(zip)"
           id="zip"
+          name="zip"
           type="number"
           class="form-control"
           placeholder="zip..."
+          required
         />
       </div>
 
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Save</button>
       &nbsp;
       <button type="button" class="btn btn-default" (click)="cancel()">
         Cancel

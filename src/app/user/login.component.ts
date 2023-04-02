@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
     selector:"login",
@@ -17,14 +18,14 @@ export class LoginComponent
     loginInvalid: any = false
     userLoggedIn: boolean = false
 
-    constructor(private router:Router)
+    constructor(private router:Router, private authServ:AuthService)
     {
         
     }
 
     login(formVal: { userName: string; password: string })
     {
-        this.userLoggedIn = true;
+        this.authServ.loginUser();
         console.log(formVal)
         this.router.navigate(['/'])
     }

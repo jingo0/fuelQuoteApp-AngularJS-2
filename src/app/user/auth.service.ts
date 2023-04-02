@@ -3,13 +3,22 @@ import { IUserCred } from "./user.model";
 
 @Injectable()
 export class AuthService{
-    currentUser!: IUserCred ;
+    currentUser!: IUserCred;
+    
+    
     constructor(){}
+
+    loginUser()
+    {
+        this.currentUser ={
+            userName: "ejnvjnejkv",
+            password: "envnenvjken",
+        }
+    }
     
 
     isAuthenticated()
     {
-        console.log(!!this.currentUser)
-        return !!this.currentUser
+        return !this.currentUser
     }
 }

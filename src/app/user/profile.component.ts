@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 @Component({
   templateUrl: `./profile.component.html`,
@@ -13,23 +12,18 @@ import { Router } from '@angular/router'
 `]
 })
 
-export class ProfileComponent implements OnInit{
+export class ProfileComponent{
   
-  profileForm!: FormGroup
-  public firstName!: FormControl
-  public lastName!: FormControl
+  public fullName!: any 
+  public address1!: any 
+  public address2?: any 
+  public city!: any 
+  public state!: any 
+  public zip!: any 
   constructor( private router:Router){}
   
 
-  ngOnInit(): void {
-    // this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')])
-    // this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required)
-
-    this.profileForm = new FormGroup({
-      firstName :this.firstName,
-      lastName: this.lastName
-  })
-  } 
+  
 
   cancel()
   {
@@ -38,24 +32,13 @@ export class ProfileComponent implements OnInit{
 
   saveProfile(formValues:any)
   {
-    if(this.profileForm.valid)
-    {
+    
+      console.log(formValues.value)
+      this.router.navigate(['/'])
     //   this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
     //   .subscribe( () => {
     //     this.toastr.success("Profile Saved!!");
     //   })
-      
-    }
-  }
-
-  validateFullName() : boolean
-  {
-    return this.firstName?.valid || this.firstName?.untouched
-  }
-
-  validateAddress() : boolean
-  {
-    return this.lastName?.valid || this.lastName?.untouched
   }
 
   logOut()
